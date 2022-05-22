@@ -8,6 +8,13 @@ class CandidateComponent{
         let html=`
         
         `;
+        
+        let root = document.createElement('div');
+        root.innerHTML = html.trim();
+        container.appendChild(root.firstChild);
+
+        let button = document.getElementById(`button${this.candidate.id}`);
+        button.addEventListener('click', this.action.bind(this));
 
     }
 
