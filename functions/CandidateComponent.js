@@ -5,31 +5,45 @@ class CandidateComponent{
     }
 
     render(container){
-        let html = `
-            <div class="card text-center" style="width: 24rem;">
-            <img src="${this.candidate.presidentImage}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"><b> PRESIDENTE</b><br>${this.candidate.president}</h5>
-            <p class="card-subtitle mb-2 text-muted"><b> VICEPRESIDENTE</b><br> ${this.candidate.formula}</p>
-            <a href="#" id="button${this.candidate.id}" class="btn btn-primary">VOTAR</a>
-            </div>
-        </div>
-        `;
 
+        let html=`<div class="card-group">
+        <div class="card text-center" style="width: 24rem;">
+        <img src="${this.candidate.groupImage}" class="card-img-top" alt="..." width="400px" height="400px">
+        <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+      <img src="${this.candidate.presidentImage}" class="card-img-top" alt="..."  width="150px" height="150px">
+      <h7 class="card-title"><b> PRESIDENTE</b><br>${this.candidate.president}</h7>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+      <img src="${this.candidate.formulaImage}" class="card-img-top" alt="..." width="150px" height="150px">
+      <h7 class="card-title"><b> VICEPRESIDENTE</b><br>${this.candidate.formula}</h7>
+      </div>
+    </div>
+  </div>
+</div>
+        <a href="#" id="button${this.candidate.id}" class="btn btn-primary">VOTAR</a>
+        
+        </div>
+      </div>`;
 
         if (this.candidate.president=="VOTO EN BLANCO"){
-            html = `
-            <div class="card text-center" style="width: 25rem;">
-            <img src="${this.candidate.presidentImage}" class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title align-center">VOTAR EN BLANCO</h5>
-            <br>
-            <br>
-            <br>
-            <a href="#" id="button${this.candidate.id}" class="btn btn-primary">VOTAR</a>
+        html=`<div class="card-group">
+        <div class="card text-center" style="width: 24rem;">
+        <img src="${this.candidate.presidentImage}" class="card-img-top" alt="..." width="400px" height="400px">
+        <div class="card-body">
+            <h3 class="card-title align-center">VOTO EN BLANCO</h3>
             </div>
+        <a href="#" id="button${this.candidate.id}" class="btn btn-primary">VOTAR</a>
+        
         </div>
-        `;
+      </div>`;
+
         }
         let root = document.createElement('div');
         root.innerHTML = html.trim();
@@ -47,7 +61,7 @@ class CandidateComponent{
         xhr.setRequestHeader('Content-Type','application/json');
         xhr.send(JSON.stringify(this.candidate));
 
-        window.alert('Voto registrado');
+        //window.alert('Voto registrado');
         //window.location.href = "results.html";
     }    
 }
