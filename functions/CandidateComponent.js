@@ -61,7 +61,7 @@ class CandidateComponent{
         xhr.setRequestHeader('Content-Type','application/json');
         xhr.send(JSON.stringify(this.candidate));
 
-        //window.alert('Voto registrado');
-        //window.location.href = "results.html";
+        window.alert('Voto registrado');
+        window.location.href = "results.html";
     }    
 }
